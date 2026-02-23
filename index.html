@@ -14,6 +14,18 @@
       line-height: 1.6;
     }
 
+    /* CONFIRMATION BANNER */
+    .confirmation-banner {
+      display: none;
+      background: #1a7a4a;
+      color: #fff;
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .confirmation-banner span { display: block; font-size: 14px; font-weight: 400; margin-top: 4px; color: #a8e6c3; }
+
     /* NAV */
     nav {
       background: #1a1a2e;
@@ -314,6 +326,12 @@
 </head>
 <body>
 
+  <!-- CONFIRMATION BANNER -->
+  <div class="confirmation-banner" id="confirmationBanner">
+    🎉 You're registered! Check your email for confirmation and Zoom details.
+    <span>Can't wait to see you there. Reply to your confirmation email with any questions.</span>
+  </div>
+
   <!-- NAV -->
   <nav>
     <strong>Limited to 12 seats</strong> &mdash; Small group. Hands-on. Built for chiropractic practices.
@@ -333,10 +351,10 @@
       <p style="color:#c8d6e5; font-size:15px; margin-bottom:20px;">Two sessions available — pick the date that works for you:</p>
       <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:12px;">
         <div style="text-align:center;">
-          <a href="[STRIPE_LINK_MON]" class="btn-primary">Monday, March 2nd &mdash; $99</a>
+          <a href="https://buy.stripe.com/9B67sMepm5poaVAaGi3VC03" class="btn-primary">Monday, March 2nd &mdash; $99</a>
         </div>
         <div style="text-align:center;">
-          <a href="[STRIPE_LINK_WED]" class="btn-primary" style="background:#fff; color:#1a1a2e;">Wednesday, March 4th &mdash; $99</a>
+          <a href="https://buy.stripe.com/5kQ14o5SQ9FEgfU8ya3VC04" class="btn-primary" style="background:#fff; color:#1a1a2e;">Wednesday, March 4th &mdash; $99</a>
         </div>
       </div>
       <span class="earlybird-note">Early bird $99 ends Friday, Feb 28. Standard price $149 after that.</span>
@@ -528,7 +546,7 @@
             ✓ Live Q&amp;A
           </div>
           <br>
-          <a href="[STRIPE_LINK_EARLY]" class="btn-primary" style="width:100%;text-align:center;display:block;">Reserve My Seat &mdash; $99</a>
+          <a href="https://buy.stripe.com/9B67sMepm5poaVAaGi3VC03" class="btn-primary" style="width:100%;text-align:center;display:block;">Reserve My Seat &mdash; $99</a>
         </div>
         <div class="pricing-card">
           <div class="price">$149</div>
@@ -542,7 +560,7 @@
             ✓ Live Q&amp;A
           </div>
           <br>
-          <a href="[STRIPE_LINK_STANDARD]" class="btn-primary" style="width:100%;text-align:center;display:block;background:#1a1a2e;color:#fff;">Reserve My Seat &mdash; $149</a>
+          <a href="https://buy.stripe.com/9B67sMepm5poaVAaGi3VC03" class="btn-primary" style="width:100%;text-align:center;display:block;background:#1a1a2e;color:#fff;">Reserve My Seat &mdash; $149</a>
         </div>
       </div>
       <p class="pricing-note">Seats are capped at 12 to keep the session interactive. No refunds after Friday, Feb 28, but you'll have recording access if something comes up.</p>
@@ -590,8 +608,8 @@
       <p>75 minutes. 3 workflows. A prompt library you can use tomorrow. Capped at 12.</p>
       <p style="color:#c8d6e5; font-size:15px; margin-bottom:20px;">Two sessions — pick your date:</p>
       <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:12px;">
-        <a href="[STRIPE_LINK_MON]" class="btn-primary">Monday, March 2nd &mdash; $99</a>
-        <a href="[STRIPE_LINK_WED]" class="btn-primary" style="background:#fff; color:#1a1a2e;">Wednesday, March 4th &mdash; $99</a>
+        <a href="https://buy.stripe.com/9B67sMepm5poaVAaGi3VC03" class="btn-primary">Monday, March 2nd &mdash; $99</a>
+        <a href="https://buy.stripe.com/5kQ14o5SQ9FEgfU8ya3VC04" class="btn-primary" style="background:#fff; color:#1a1a2e;">Wednesday, March 4th &mdash; $99</a>
       </div>
       <span class="earlybird-note">Early bird ends Friday, Feb 28. Standard price $149 after that.</span>
     </div>
@@ -602,6 +620,13 @@
     <p>Questions? Email <a href="mailto:[YOUR_EMAIL]" style="color:#f0a500;">[YOUR_EMAIL]</a></p>
     <p style="margin-top:8px;">© 2026 [YOUR NAME / BUSINESS NAME]. All rights reserved.</p>
   </footer>
+
+  <script>
+    if (new URLSearchParams(window.location.search).get('registered') === 'true') {
+      document.getElementById('confirmationBanner').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+  </script>
 
 </body>
 </html>
